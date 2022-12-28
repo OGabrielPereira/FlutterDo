@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/home_pade.dart';
+import 'package:flutter_do/pages/home_pade.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,4 +13,5 @@ class MyApp extends StatelessWidget {
       home: HomePage()
     );
   }
+
 }
