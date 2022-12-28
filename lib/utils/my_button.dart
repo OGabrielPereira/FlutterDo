@@ -13,6 +13,18 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(onPressed: onPressed);
+    
+    return MaterialButton(
+      onPressed: onPressed,
+      color: const Color.fromARGB(255, 0, 0, 0),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Color.fromARGB(255, 214, 214, 214),
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+        )
+      ),
+    );
   }
 }

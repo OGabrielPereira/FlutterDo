@@ -11,12 +11,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  // text controller
+  final _controller = TextEditingController();
+
   // list of todo tasks
   // ignore: non_constant_identifier_names
-  List ToDoList = [
-    ["Aprender Flutter", false],
-    ["Fazer Exercícios", false]
-  ];
+  List ToDoList = [];
 
   // function to change the checkbox state
   void checkBoxChange(bool? value, int index) {
@@ -25,12 +25,34 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // save new task
+  void saveNewTask() {
+    setState((){
+      ToDoList.add([ _controller.text, false]);
+      _controller.clear();
+    });
+      Navigator.of(context).pop();
+  }
+  // delete task
+  void deleteTask(int index) {
+    setState(() {
+      ToDoList.removeAt(index);
+    });
+  }
+
   // function to create a new task
   void createNewTask() {
     showDialog(
       context: context, 
       builder: (context) {
-        return DialogBox();
+        return DialogBox(
+          controller: _controller,
+          onSave: saveNewTask,
+          onCancel: () {
+            Navigator.of(context).pop();  
+            _controller.clear();
+          },
+        );
       },
     );
   }
@@ -65,6 +87,7 @@ class _HomePageState extends State<HomePage> {
             taskName: ToDoList[index][0],
             taskCompleted: ToDoList[index][1],
             onChanged: (value) => checkBoxChange(value, index),
+            deleteFunction: (context) => deleteTask(index)
           );
         } ,
         
