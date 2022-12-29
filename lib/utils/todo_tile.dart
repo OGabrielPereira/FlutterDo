@@ -50,30 +50,37 @@ class ToDoTile extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Color.fromARGB(255, 181, 181, 181),
             borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
           
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //checkbox
-              Checkbox(
-                value: taskCompleted, 
-                onChanged: onChanged,
-                activeColor: const Color.fromARGB(216, 0, 0, 0),
+              Row(
+                children: [
+                  //checkbox
+                  Checkbox(
+                    value: taskCompleted, 
+                    onChanged: onChanged,
+                    activeColor: const Color.fromARGB(216, 0, 0, 0),
+                  ),
+                  //task name
+                  Text(
+                    taskName, 
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      decoration: taskCompleted 
+                        ? TextDecoration.lineThrough 
+                        : TextDecoration.none
+                    )
+                  ),
+                  // left arrow
+                ],
               ),
-      
-              //task name
-              Text(
-                taskName, 
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  decoration: taskCompleted 
-                    ? TextDecoration.lineThrough 
-                    : TextDecoration.none
-                )
-              ),
+                // const Text("<", style: TextStyle(fontSize: 27, fontWeight: FontWeight.w400)),
+                const Icon(Icons.arrow_back_ios, size: 22),
             ],
           ),
         ),

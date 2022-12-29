@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_do/data/database.dart';
 import 'package:flutter_do/utils/dialog_box.dart';
+import 'package:flutter_do/utils/modal_dialog_box.dart';
 import 'package:flutter_do/utils/todo_tile.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
@@ -95,10 +96,27 @@ class _HomePageState extends State<HomePage> {
 
   // function to create a new task
   void createNewTask() {
-    showDialog(
-      context: context, 
+    // showDialog(
+    //   context: context, 
+    //   builder: (context) {
+    //     return DialogBox(
+    //       controller: _controller,
+    //       onSave: saveNewTask,
+    //       onCancel: () {
+    //         Navigator.of(context).pop();  
+    //         _controller.clear();
+    //       },
+    //     );
+    //   },
+    // );
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      isScrollControlled: true,
       builder: (context) {
-        return DialogBox(
+        return ModalDialogBox(
           controller: _controller,
           onSave: saveNewTask,
           onCancel: () {
@@ -113,8 +131,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Text 255, 97, 137, 247
-      // Background 255, 214, 214, 214
       backgroundColor: const Color.fromARGB(255, 203, 203, 203),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 1, 1, 31),
