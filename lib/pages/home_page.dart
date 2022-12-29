@@ -56,8 +56,9 @@ class _HomePageState extends State<HomePage> {
   // save new task
   void saveNewTask() {
     setState((){
-      db.toDoList.insert(0, [ _controller_name.text, false]);
+      db.toDoList.insert(0, [ _controller_name.text, _controller_description.text, false]);
       _controller_name.clear();
+      _controller_description.clear();
     });
       Navigator.of(context).pop();
       db.updateData();
@@ -111,6 +112,7 @@ class _HomePageState extends State<HomePage> {
           onCancel: () {
             Navigator.of(context).pop();  
             _controller_name.clear();
+            _controller_description.clear();
           },
         );
       },
@@ -177,7 +179,7 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 return ToDoTile(
                   taskName: db.toDoList[index][0],
-                  taskCompleted: db.toDoList[index][1],
+                  taskCompleted: db.toDoList[index][2],
                   onChanged: (value) => checkBoxChange(value, index),
                   deleteFunction: (context) => deleteTask(index),
                   editFunction: (context) => editTask(index),
