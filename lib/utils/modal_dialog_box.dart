@@ -20,7 +20,6 @@ class ModalDialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 730,
       //border for container 
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 203, 203, 203),
@@ -30,7 +29,8 @@ class ModalDialogBox extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: EdgeInsets.fromLTRB(30, AppBar().preferredSize.height, 30, 30),
+
         child: SizedBox(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
