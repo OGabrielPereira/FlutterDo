@@ -2,6 +2,9 @@
 
 Flutter Do! is a To-do List application made in Flutter 3
 
+## Screenshots
+##### Loading...
+
 ## Installing and Running
 
 1. Clone the repository
@@ -22,16 +25,16 @@ flutter pub get
 flutter run
 ```
 
-## License
+## Features
 
-[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
-
-## Screenshots
-##### Loading...
-
-## Implementations/Ajusts
-
-[ ] 
+- [x] Add new tasks.
+- [x] Save all tasks locally.
+- [x] Mark a task as complete.
+- [x] Delete completed tasks.
+- [ ] Adit the info of a task.
+- [ ] Add name and description for a task.
+- [ ] See all the info of a task.
+- [x] See how many tasks there are.
 
 ## Contribute
 
@@ -43,3 +46,9 @@ Contributions welcome!
 4.  Commit your changes (`git commit -m 'Description of a commit'`)
 5.  Push to the branch (`git push origin your_branch_name`)
 6.  Create a new Pull Request
+
+
+## License
+
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+
