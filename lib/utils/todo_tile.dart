@@ -30,34 +30,28 @@ class ToDoTile extends StatelessWidget {
           motion: const StretchMotion(),
           children: [
             SlidableAction(
+              onPressed: editFunction, 
+              label: "Edit", 
+              icon: Icons.edit,
+              backgroundColor: const Color.fromARGB(255, 31, 30, 30),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            SlidableAction(
               onPressed: deleteFunction, 
               label: "Delete", 
               icon: Icons.delete,
               backgroundColor: const Color.fromARGB(255, 199, 26, 26),
               borderRadius: BorderRadius.circular(12),
-            )
+            ),
           ],
         ),
-
-        startActionPane: ActionPane(
-          motion: const StretchMotion(),
-          children: [
-            SlidableAction(
-              onPressed: editFunction, 
-              label: "Edit", 
-              icon: Icons.edit,
-              backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-              borderRadius: BorderRadius.circular(12),
-            )
-          ],
-        ),
-
+        
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(16),
           
           decoration: const BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
           
           child: Row(

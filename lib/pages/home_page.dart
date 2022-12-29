@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   // save new task
   void saveNewTask() {
     setState((){
-      db.toDoList.add([ _controller.text, false]);
+      db.toDoList.insert(0, [ _controller.text, false]);
       _controller.clear();
     });
       Navigator.of(context).pop();
@@ -102,18 +102,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 214, 214, 214),
+      // Text 255, 97, 137, 247
+      // Background 255, 214, 214, 214
+      backgroundColor: Color.fromARGB(255, 203, 203, 203),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(216, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 1, 1, 31),
         elevation: 0,
         title: const Text('F L U T T E R  D O !', 
           style: TextStyle(
-            color: Color.fromARGB(255, 214, 214, 214),
+            color: Color.fromARGB(255, 97, 137, 247),
             fontSize: 20,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w900,
           ),
         ),
-        centerTitle: true,
+        centerTitle: false,
       ),
       
       floatingActionButton: FloatingActionButton(
@@ -122,20 +124,41 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
       ),
 
-      body: ListView.builder(
-        itemCount: db.toDoList.length,
-        itemBuilder: (context, index) {
-          return ToDoTile(
-            taskName: db.toDoList[index][0],
-            taskCompleted: db.toDoList[index][1],
-            onChanged: (value) => checkBoxChange(value, index),
-            deleteFunction: (context) => deleteTask(index),
-            editFunction: (context) => editTask(index),
-          );
-        } ,
-        
-      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("You have ${db.toDoList.length} tasks for today",
+                  style: const TextStyle(
+                    color: Color.fromARGB(255, 1, 1, 31),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const Icon(Icons.calendar_month)
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: db.toDoList.length,
+              itemBuilder: (context, index) {
+                return ToDoTile(
+                  taskName: db.toDoList[index][0],
+                  taskCompleted: db.toDoList[index][1],
+                  onChanged: (value) => checkBoxChange(value, index),
+                  deleteFunction: (context) => deleteTask(index),
+                  editFunction: (context) => editTask(index),
+                );
+              } ,
+            ),
 
+          ),
+        ],
+      )
     );
   }
 }
