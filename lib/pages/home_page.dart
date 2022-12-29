@@ -3,6 +3,7 @@ import 'package:flutter_do/data/database.dart';
 import 'package:flutter_do/utils/dialog_box.dart';
 import 'package:flutter_do/utils/todo_tile.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  DateTime date = DateTime.now();
+  static const Map<int, String> weekdayName = {
+    1: "Monday", 
+    2: "Tuesday", 
+    3: "Wednesday", 
+    4: "Thursday", 
+    5: "Friday", 
+    6: "Saturday", 
+    7: "Sunday"
+  };
   // reference the hive box
   final _flutterBox = Hive.box('FlutterBox');
   ToDoDatabase db = ToDoDatabase();
@@ -104,16 +115,29 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // Text 255, 97, 137, 247
       // Background 255, 214, 214, 214
-      backgroundColor: Color.fromARGB(255, 203, 203, 203),
+      backgroundColor: const Color.fromARGB(255, 203, 203, 203),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 1, 1, 31),
         elevation: 0,
-        title: const Text('F L U T T E R  D O !', 
-          style: TextStyle(
-            color: Color.fromARGB(255, 97, 137, 247),
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('F L U T T E R  D O !', 
+              style: TextStyle(
+                color: Color.fromARGB(255, 97, 137, 247),
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            // Day of the week
+            Text(weekdayName[date.weekday]!,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 97, 137, 247),
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+          ],
         ),
         centerTitle: false,
       ),
