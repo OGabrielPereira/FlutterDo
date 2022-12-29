@@ -6,13 +6,15 @@ import 'my_button.dart';
 class ModalDialogBox extends StatelessWidget {
 
   // ignore: prefer_typing_uninitialized_variables
-  final controller;
+  final controller_name;
+  final controller_description;
   VoidCallback onSave;
   VoidCallback onCancel;
 
   ModalDialogBox({
     super.key,
-    required this.controller,
+    required this.controller_name,
+    required this.controller_description,
     required this.onSave,
     required this.onCancel
   });
@@ -48,10 +50,11 @@ class ModalDialogBox extends StatelessWidget {
                     ),
 
                   const SizedBox(height: 20),
+                  // TASK NAME
                   TextField(
                     keyboardType: TextInputType.multiline,
                     maxLines: 1,
-                    controller: controller,
+                    controller: controller_name,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 18,
@@ -77,64 +80,36 @@ class ModalDialogBox extends StatelessWidget {
                         
                       ),
                     ),
-                    const SizedBox(height: 20),
-
-                  Container(
-                    height: 150,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(16),
+                  const SizedBox(height: 20),
+                  // TASK DESCRIPTION
+                  TextField(
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 10, 
+                    minLines: 7, 
+                    controller: controller_description,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5,
+                    
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text("Write a description for your task...", 
-                        style: TextStyle(
+                    decoration: InputDecoration(
+                        hintText: "Write your task description here... ",
+                        hintStyle: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),
-                      ),
-                    ),
-                  ),
-                  
-                    // Task Time
-                    const SizedBox(height: 20),
-                    Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: const [
-                                Icon(Icons.access_time),
-                                SizedBox(width: 10), 
-                                Text(
-                                  "Task Time",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 0, 0, 0),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Text(
-                              "12:00",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0), 
                         ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ),
+                        ),
+                        
                       ),
                     ),
                   ],

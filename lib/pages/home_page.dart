@@ -42,7 +42,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   // text controller
-  final _controller = TextEditingController();
+  final _controller_name = TextEditingController();
+  final _controller_description = TextEditingController();
 
   // function to change the checkbox state
   void checkBoxChange(bool? value, int index) {
@@ -55,8 +56,8 @@ class _HomePageState extends State<HomePage> {
   // save new task
   void saveNewTask() {
     setState((){
-      db.toDoList.insert(0, [ _controller.text, false]);
-      _controller.clear();
+      db.toDoList.insert(0, [ _controller_name.text, false]);
+      _controller_name.clear();
     });
       Navigator.of(context).pop();
       db.updateData();
@@ -76,18 +77,18 @@ class _HomePageState extends State<HomePage> {
       context: context, 
       builder: (context) {
         return DialogBox(
-          controller: _controller,
+          controller: _controller_name,
           onSave: () {
             setState(() {
-              db.toDoList[index][0] = _controller.text;
+              db.toDoList[index][0] = _controller_name.text;
             });
             Navigator.of(context).pop();
-            _controller.clear();
+            _controller_name.clear();
             db.updateData();
           },
           onCancel: () {
             Navigator.of(context).pop();
-            _controller.clear();
+            _controller_name.clear();
           },
         );
       },
@@ -104,11 +105,12 @@ class _HomePageState extends State<HomePage> {
       isScrollControlled: true,
       builder: (context) {
         return ModalDialogBox(
-          controller: _controller,
+          controller_name: _controller_name,
+          controller_description: _controller_description,
           onSave: saveNewTask,
           onCancel: () {
             Navigator.of(context).pop();  
-            _controller.clear();
+            _controller_name.clear();
           },
         );
       },
