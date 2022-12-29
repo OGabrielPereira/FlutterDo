@@ -22,13 +22,13 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
       ),
       onPressed: onPressed,
-      color: const Color.fromARGB(255, 0, 0, 0),
+      color: const Color.fromARGB(255, 1, 1, 31),
       child: Text(
         text,
         style: const TextStyle(
-          color: Color.fromARGB(255, 214, 214, 214),
-          fontSize: 18,
-          fontWeight: FontWeight.w400,
+          color: Color.fromARGB(255, 97, 137, 247),
+          fontSize: 20,
+          fontWeight: FontWeight.w900,
         )
       ),
     );

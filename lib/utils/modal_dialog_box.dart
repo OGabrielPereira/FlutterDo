@@ -41,7 +41,7 @@ class ModalDialogBox extends StatelessWidget {
                   const Text(
                       "Add a New Task",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: Color.fromARGB(255, 1, 1, 31),
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
                       ),

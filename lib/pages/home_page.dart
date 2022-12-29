@@ -96,19 +96,6 @@ class _HomePageState extends State<HomePage> {
 
   // function to create a new task
   void createNewTask() {
-    // showDialog(
-    //   context: context, 
-    //   builder: (context) {
-    //     return DialogBox(
-    //       controller: _controller,
-    //       onSave: saveNewTask,
-    //       onCancel: () {
-    //         Navigator.of(context).pop();  
-    //         _controller.clear();
-    //       },
-    //     );
-    //   },
-    // );
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
@@ -159,7 +146,7 @@ class _HomePageState extends State<HomePage> {
       ),
       
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(216, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 1, 1, 31),
         onPressed: createNewTask,
         child: const Icon(Icons.add),
       ),
@@ -171,7 +158,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("You have ${db.toDoList.length} tasks for today",
+                Text("You have ${db.toDoList.length == 1 ? "${db.toDoList.length} task" : "${db.toDoList.length} tasks"} for today",
                   style: const TextStyle(
                     color: Color.fromARGB(255, 1, 1, 31),
                     fontSize: 18,
