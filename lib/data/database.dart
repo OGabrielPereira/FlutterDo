@@ -21,6 +21,7 @@ class ToDoDatabase {
   void loadData() {
     toDoList = _flutterBox.get('TODOLIST');
   }
+  // close box
 
   // update the database
   void updateData() {
