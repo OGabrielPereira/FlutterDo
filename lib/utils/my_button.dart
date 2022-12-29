@@ -17,7 +17,7 @@ class MyButton extends StatelessWidget {
     
     return MaterialButton(
       height: 60.0,
-      minWidth: 150.0,
+      minWidth: 145.0, 
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
