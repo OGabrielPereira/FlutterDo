@@ -42,13 +42,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   // text controller
+  // ignore: non_constant_identifier_names
   final _controller_name = TextEditingController();
+  // ignore: non_constant_identifier_names
   final _controller_description = TextEditingController();
 
   // function to change the checkbox state
   void checkBoxChange(bool? value, int index) {
     setState(() {
-      db.toDoList[index][1] = !db.toDoList[index][1];
+      db.toDoList[index][2] = !db.toDoList[index][2];
     });
     db.updateData();
   }
@@ -74,22 +76,31 @@ class _HomePageState extends State<HomePage> {
 
   // edit task
   void editTask(int index) {
-    showDialog(
-      context: context, 
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      isScrollControlled: true,
       builder: (context) {
-        return DialogBox(
-          controller: _controller_name,
+        return ModalDialogBox(
+          modal_title: "Edit Task",
+          controller_name: _controller_name,
+          controller_description: _controller_description,
           onSave: () {
             setState(() {
               db.toDoList[index][0] = _controller_name.text;
+              db.toDoList[index][1] = _controller_description.text;
             });
             Navigator.of(context).pop();
             _controller_name.clear();
+            _controller_description.clear();
             db.updateData();
           },
           onCancel: () {
             Navigator.of(context).pop();
             _controller_name.clear();
+            _controller_description.clear();
           },
         );
       },
@@ -106,6 +117,7 @@ class _HomePageState extends State<HomePage> {
       isScrollControlled: true,
       builder: (context) {
         return ModalDialogBox(
+          modal_title: "Add New Task",
           controller_name: _controller_name,
           controller_description: _controller_description,
           onSave: saveNewTask,
@@ -118,6 +130,8 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {

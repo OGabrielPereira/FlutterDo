@@ -11,8 +11,8 @@ class ToDoDatabase {
   // run this method if this is the 1st time ever opening it
   void createInicialData() {
     toDoList = [
-      ["Make Tutotial", "Same Desc", false],
-      ["Make Money", "Some Desc", false]
+      ["First Task", "Some random desc", false],
+      ["Second Task", "Some random desc", false]
     ];
   }
 

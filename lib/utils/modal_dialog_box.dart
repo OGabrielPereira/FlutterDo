@@ -6,6 +6,7 @@ import 'my_button.dart';
 class ModalDialogBox extends StatelessWidget {
 
   // ignore: prefer_typing_uninitialized_variables
+  final String modal_title;
   final controller_name;
   final controller_description;
   VoidCallback onSave;
@@ -13,6 +14,7 @@ class ModalDialogBox extends StatelessWidget {
 
   ModalDialogBox({
     super.key,
+    required this.modal_title,
     required this.controller_name,
     required this.controller_description,
     required this.onSave,
@@ -40,9 +42,9 @@ class ModalDialogBox extends StatelessWidget {
               // title
               Column(
                 children: [
-                  const Text(
-                      "Add a New Task",
-                      style: TextStyle(
+                  Text(
+                      modal_title,
+                      style: const TextStyle(
                         color: Color.fromARGB(255, 1, 1, 31),
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
