@@ -195,6 +195,7 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 return ToDoTile(
                   taskName: db.toDoList[index][0],
+                  taskDescription: db.toDoList[index][1],
                   taskCompleted: db.toDoList[index][2],
                   onChanged: (value) => checkBoxChange(value, index),
                   deleteFunction: (context) => deleteTask(index),
