@@ -31,8 +31,8 @@ flutter run
 - [x] Save all tasks locally.
 - [x] Mark a task as complete.
 - [x] Delete completed tasks.
-- [x] Adit the info of a task.
-- [ ] Add name and description for a task.
+- [ ] Adit the info of a task.
+- [x] Add name and description for a task.
 - [ ] See all the info of a task.
 - [x] See how many tasks there are.
 
