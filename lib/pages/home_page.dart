@@ -76,6 +76,8 @@ class _HomePageState extends State<HomePage> {
 
   // edit task
   void editTask(int index) {
+    _controller_name.text = db.toDoList[index][0];
+    _controller_description.text = db.toDoList[index][1];
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
