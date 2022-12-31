@@ -6,8 +6,8 @@ An Open-Source To-do List App for all your needs!
 
 ### Don't forget to :star: the repo
 
-[![GitHub stars](https://img.shields.io/github/stars/OGabrielPereira/flutter_do.svg?style=social&label=Star)](https://github.com/OGabrielPereira/flutter_do) 
-![GitHub forks](https://img.shields.io/github/forks/OGabrielPereira/flutter_do.svg?style=social&label=Forks) 
+[![GitHub stars](https://img.shields.io/github/stars/OGabrielPereira/FlutterDo.svg?style=social&label=Star)](https://github.com/OGabrielPereira/flutter_do) 
+![GitHub forks](https://img.shields.io/github/forks/OGabrielPereira/FlutterDo.svg?style=social&label=Forks) 
 ![GitHub followers](https://img.shields.io/github/followers/OGabrielPereira.svg?style=social&label=Follow)
 
 ## Screenshots
